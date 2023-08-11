@@ -1,0 +1,6 @@
+name: Freya
+version: '${project.version}'
+main: com.github.beadieststar64.freya.freya.Freya
+api-version: '1.19'
+load: STARTUP
+prefix: FREYA
