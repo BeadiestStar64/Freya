@@ -3,6 +3,7 @@ package com.github.beadieststar64.freya.freya;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -30,15 +31,15 @@ public final class Freya extends JavaPlugin {
         getServer().getConsoleSender().sendMessage(ChatColor.RED + "FREYA Plugin has been disable!!");
     }
 
-    public Freya(Freya plugin, String currentPath) {
-        this(plugin, currentPath, "config.yml");
+    public Freya(Plugin plugin, String currentPath) {
+        this((Freya) plugin, currentPath, "config.yml");
     }
 
-    public Freya(Freya plugin, String currentPath, String fileName) {
-        this.plugin = plugin;
+    public Freya(Plugin plugin, String currentPath, String fileName) {
+        this.plugin = (Freya) plugin;
         this.file = fileName;
         if(currentPath.isEmpty()) {
-            ymlFile = new File(plugin.getDataFolder(), File.separator + file);
+            ymlFile = new File(plugin.getDataFolder(), file);
         }else{
             ymlFile = new File(plugin.getDataFolder(), currentPath + File.separator + file);
         }
